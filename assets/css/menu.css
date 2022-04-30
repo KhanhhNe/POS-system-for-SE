@@ -5,13 +5,23 @@
 
 html {
     --red: #f81a1a;
+    --red-shadow: #f81a1a77;
 
     font-family: "Work Sans", sans-serif;
     font-size: 16px;
 }
 
+button {
+    transition: 0.2s all ease;
+}
+
+button:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px 0 var(--red-shadow);
+}
+
 .menu {
-    --items-spacing: 1rem;
+    --items-spacing: 2rem;
     --details-margin: 0.5rem;
 
     display: flex;
@@ -23,13 +33,17 @@ html {
 
 .item {
     display: flex;
-    width: calc(25% - 0.75 * var(--items-spacing));
+    width: calc(25% - 3 / 4 * var(--items-spacing));
     gap: 0.5rem;
     box-sizing: border-box;
     flex-direction: column;
     border-radius: 1rem;
     overflow: hidden;
     box-shadow: 0 0 14px 0 #00000029;
+}
+
+.item.in-cart {
+    box-shadow: 0 0 14px 0 var(--red-shadow);
 }
 
 .item img {
@@ -55,6 +69,7 @@ html {
     align-items: center;
     margin-inline: var(--details-margin);
     margin-bottom: var(--details-margin);
+    flex-grow: 1;
 }
 
 .item-price {
@@ -74,5 +89,24 @@ html {
     border: none;
     background: var(--red) url("/assets/img/menu-cart.svg") no-repeat;
     border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.item.in-cart .item-buy {
+    display: none;
+}
+
+.item:not(.in-cart) .item-modify-wrapper {
+    display: none;
+}
+
+.item-modify {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: white;
+    font-variation-settings: 'wght' 900;
+    border: none;
+    background-color: var(--red);
+    border-radius: 0.25rem;
     overflow: hidden;
 }
