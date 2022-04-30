@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Work Sans";
-  src: url("/assets/fonts/WorkSans-VariableFont_wght.ttf");
+  src: url("../fonts/WorkSans-VariableFont_wght.ttf");
 }
 
 html {
@@ -11,6 +11,10 @@ html {
     font-size: 16px;
 }
 
+body {
+    margin: 0;
+}
+
 button {
     transition: 0.2s all ease;
 }
@@ -18,6 +22,35 @@ button {
 button:hover {
     cursor: pointer;
     box-shadow: 0 0 10px 0 var(--red-shadow);
+}
+
+.page-title {
+    --inline-padding: 1.5rem;
+
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - var(--inline-padding) * 2);
+    background-color: var(--red);
+    padding: 1rem var(--inline-padding);
+    color: white;
+    box-shadow: 0 0 10px 0 var(--red-shadow);
+}
+
+.page-title h1 {
+    margin: 0;
+}
+
+.page-title .cart {
+    background-image: url("../img/menu-cart-link.svg");
+    color: transparent;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 2rem;
+    height: 2rem;
+}
+
+.menu-wrapper {
+    padding: 3rem;
 }
 
 .menu {
@@ -40,6 +73,24 @@ button:hover {
     border-radius: 1rem;
     overflow: hidden;
     box-shadow: 0 0 14px 0 #00000029;
+}
+
+@media only screen and (max-width: 768px) {
+    .item {
+        width: calc(33% - 2 / 3 * var(--items-spacing));
+    }
+}
+
+@media only screen and (max-width: 630px) {
+    .item {
+        width: calc(50% - 1 / 2 * var(--items-spacing));
+    }
+}
+
+@media only screen and (max-width: 460px) {
+    .item {
+        width: 100%;
+    }
 }
 
 .item.in-cart {
@@ -77,6 +128,7 @@ button:hover {
     color: var(--red);
     font-size: 0.9rem;
     font-variation-settings: 'wght' 600;
+    white-space: nowrap;
 }
 
 .item-buy {
@@ -87,7 +139,7 @@ button:hover {
     background-size: cover;
     color: transparent;
     border: none;
-    background: var(--red) url("/assets/img/menu-cart.svg") no-repeat;
+    background: var(--red) url("../img/menu-cart.svg") no-repeat;
     border-radius: 0.5rem;
     overflow: hidden;
 }
@@ -98,6 +150,10 @@ button:hover {
 
 .item:not(.in-cart) .item-modify-wrapper {
     display: none;
+}
+
+.item-modify-wrapper {
+    white-space: nowrap;
 }
 
 .item-modify {

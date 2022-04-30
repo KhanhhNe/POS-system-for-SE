@@ -43,6 +43,9 @@ const menuItems = [
     }
 ]
 let cart = []
+if (localStorage.getItem('POS_cart')) {
+    cart = JSON.parse(localStorage.getItem('POS_cart'))
+}
 
 const menuElem = document.querySelector('.menu')
 
@@ -71,6 +74,10 @@ function setupMenu() {
         `
         menuElem.append(template.content)
     }
+
+    for (const item of cart) {
+        updateItem(item.id)
+    }
 }
 
 setupMenu()
@@ -78,6 +85,23 @@ setupMenu()
 
 function getCartItem(itemId) {
     return cart.filter(i => i.id === itemId)[0]
+}
+
+
+function updateItem(itemId) {
+    const quantity = getCartItem(itemId).quantity
+    const itemElem = document.querySelector(`#item-${itemId}`)
+    if (quantity > 0) {
+        itemElem.classList.add('in-cart')
+    } else {
+        itemElem.classList.remove('in-cart')
+    }
+    itemElem.querySelector(`.item-order-amount`).textContent = String(quantity)
+}
+
+
+function saveCart() {
+    localStorage.setItem('POS_cart', JSON.stringify(cart))
 }
 
 
@@ -89,10 +113,9 @@ function buyItem(itemId) {
             quantity: 0
         })
     }
-    const quantity = getCartItem(itemId).quantity += 1
-    const itemElem = document.querySelector(`#item-${itemId}`)
-    itemElem.classList.add('in-cart')
-    itemElem.querySelector(`.item-order-amount`).textContent = String(quantity)
+    getCartItem(itemId).quantity += 1
+    updateItem(itemId)
+    saveCart()
 }
 
 
@@ -100,11 +123,7 @@ function reduceItem(itemId) {
     const item = getCartItem(itemId)
     if (item === undefined || item.quantity === 0) return
 
-    const quantity = item.quantity -= 1
-    const itemElem = document.querySelector(`#item-${itemId}`)
-    itemElem.querySelector(`.item-order-amount`).textContent = String(quantity)
-    if (quantity === 0) {
-        itemElem.classList.remove('in-cart')
-        cart = cart.filter(i => i.id !== itemId)
-    }
+    item.quantity -= 1
+    updateItem(itemId)
+    saveCart()
 }
