@@ -66,8 +66,8 @@ function setupMenu() {
         const template = document.createElement('template')
         template.innerHTML = `
             <div class="item" id="item-${item.id}">
-                <img src="${item.image}" alt="${item.name}" onclick="location.href = '/item-details.html?item_id=${item.id}'">
-                <div class="item-name" onclick="location.href = '/item-details.html?item_id=${item.id}'">${item.name}</div>
+                <img src="${item.image}" alt="${item.name}" onclick="location.href = 'item-details.html?item_id=${item.id}'">
+                <div class="item-name" onclick="location.href = 'item-details.html?item_id=${item.id}'">${item.name}</div>
                 <div class="item-details">
                     <span class="item-price">$ ${item.price}</span>
                     <button class="item-buy" onclick="buyItem('${item.id}'); return false">Buy</button>
