@@ -2,44 +2,51 @@ const menuItems = [
     {
         id: "1",
         name: "Hamburger",
-        price: "123,00",
-        image: "assets/img/menu-hamburger.png"
+        price: 123.0,
+        image: "assets/img/menu-hamburger.png",
+        description: "Delicious hamburger"
     },
     {
         id: "2",
         name: "Sandwich",
-        price: "69,00",
-        image: "assets/img/menu-hamburger.png"
+        price: 69.5,
+        image: "assets/img/menu-hamburger.png",
+        description: "Delicious sandwich"
     },
     {
         id: "3",
         name: "Pizza",
-        price: "72,00",
-        image: "assets/img/menu-hamburger.png"
+        price: 72.0,
+        image: "assets/img/menu-hamburger.png",
+        description: "Delicious pizza"
     },
     {
         id: "4",
         name: "Chicken",
-        price: "140,00",
-        image: "assets/img/menu-hamburger.png"
+        price: 140.0,
+        image: "assets/img/menu-hamburger.png",
+        description: "Delicious chicken"
     },
     {
         id: "5",
         name: "Onion",
-        price: "25,00",
-        image: "assets/img/menu-hamburger.png"
+        price: 25.4,
+        image: "assets/img/menu-hamburger.png",
+        description: "Delicious onion"
     },
     {
         id: "6",
         name: "Lemon",
-        price: "30,00",
-        image: "assets/img/menu-hamburger.png"
+        price: 30.9,
+        image: "assets/img/menu-hamburger.png",
+        description: "Delicious lemon"
     },
     {
         id: "7",
         name: "Beef",
-        price: "50,00",
-        image: "assets/img/menu-hamburger.png"
+        price: 50.0,
+        image: "assets/img/menu-hamburger.png",
+        description: "Delicious beef"
     }
 ]
 let cart = []
@@ -62,7 +69,7 @@ function setupMenu() {
                 <img src="${item.image}" alt="${item.name}">
                 <div class="item-name">${item.name}</div>
                 <div class="item-details">
-                    <span class="item-price">Kr ${item.price}</span>
+                    <span class="item-price">$ ${item.price}</span>
                     <button class="item-buy" onclick="buyItem('${item.id}')">Buy</button>
                     <div class="item-modify-wrapper">
                         <button class="item-modify decrease" onclick="reduceItem('${item.id}')">-</button>
