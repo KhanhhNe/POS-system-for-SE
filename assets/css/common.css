@@ -40,7 +40,7 @@ button:hover {
     margin: 0;
 }
 
-.page-title .cart, .menu {
+.page-title .cart, .page-title .menu {
     color: transparent;
     background-repeat: no-repeat;
     background-size: cover;

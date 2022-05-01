@@ -75,7 +75,7 @@
 .item-price {
     font-weight: bold;
     color: var(--red);
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     font-variation-settings: 'wght' 600;
     white-space: nowrap;
 }
