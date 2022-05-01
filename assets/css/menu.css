@@ -73,7 +73,6 @@
 }
 
 .item-price {
-    font-weight: bold;
     color: var(--red);
     font-size: 1.1rem;
     font-variation-settings: 'wght' 600;

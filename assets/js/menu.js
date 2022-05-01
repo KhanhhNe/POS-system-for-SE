@@ -91,7 +91,7 @@ setupMenu()
 
 
 function getCartItem(itemId) {
-    return cart.filter(i => i.id === itemId)[0]
+    return cart.find(i => i.id === itemId)
 }
 
 
@@ -114,7 +114,7 @@ function saveCart() {
 
 function buyItem(itemId) {
     if (getCartItem(itemId) === undefined) {
-        const item = menuItems.filter(i => i.id === itemId)[0]
+        const item = menuItems.find(i => i.id === itemId)
         cart.push({
             ...item,
             quantity: 0
