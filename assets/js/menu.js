@@ -66,15 +66,15 @@ function setupMenu() {
         const template = document.createElement('template')
         template.innerHTML = `
             <div class="item" id="item-${item.id}">
-                <img src="${item.image}" alt="${item.name}">
-                <div class="item-name">${item.name}</div>
+                <img src="${item.image}" alt="${item.name}" onclick="location.href = '/item-details.html?item_id=${item.id}'">
+                <div class="item-name" onclick="location.href = '/item-details.html?item_id=${item.id}'">${item.name}</div>
                 <div class="item-details">
                     <span class="item-price">$ ${item.price}</span>
-                    <button class="item-buy" onclick="buyItem('${item.id}')">Buy</button>
+                    <button class="item-buy" onclick="buyItem('${item.id}'); return false">Buy</button>
                     <div class="item-modify-wrapper">
-                        <button class="item-modify decrease" onclick="reduceItem('${item.id}')">-</button>
+                        <button class="item-modify decrease" onclick="reduceItem('${item.id}'); return false">-</button>
                         <span class="item-order-amount">0</span>
-                        <button class="item-modify increase" onclick="buyItem('${item.id}')">+</button>
+                        <button class="item-modify increase" onclick="buyItem('${item.id}'); return false">+</button>
                     </div>
                 </div>
             </div>

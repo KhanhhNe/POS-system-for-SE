@@ -22,6 +22,30 @@
     border-radius: 1rem;
     overflow: hidden;
     box-shadow: 0 0 14px 0 #00000029;
+    transition: 0.2s all ease;
+}
+
+.item:hover {
+    box-shadow: 0 0 14px 0 var(--red-shadow);
+}
+
+.item img:hover, .item .item-name:hover {
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+    .item-name {
+        font-size: 1.5rem !important;
+    }
+
+    .item-price {
+        font-size: 1.3rem !important;
+    }
+
+    .item-buy, .item-modify {
+        width: 2rem !important;
+        height: 2rem !important;
+    }
 }
 
 @media only screen and (max-width: 768px) {
