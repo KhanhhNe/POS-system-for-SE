@@ -62,7 +62,7 @@ function displayItem(itemId) {
             <section>
                 <div class="item-brief-line">
                     <h1 class="item-name">${item.name}</h1>
-                    <h3>Unit Price</h3>
+                    <h3 style="text-align: right">Unit Price</h3>
                 </div>
                 <div class="item-brief-line">
                     <h3 class="item-id">SKU: ${item.id}</h3>
