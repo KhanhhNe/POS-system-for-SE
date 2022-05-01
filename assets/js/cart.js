@@ -79,8 +79,9 @@ function setupCart() {
             </div>
         `
         cartElem.append(template.content)
-        totalQuantity += item.quantity || 0
-        totalPrice += item.price || 0
+        const quantity = item.quantity || 0;
+        totalQuantity += quantity
+        totalPrice += (item.price || 0) * quantity
     }
 
     const template = document.createElement('template')
